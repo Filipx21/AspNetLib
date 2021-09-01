@@ -23,7 +23,7 @@ namespace WebForms
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            btn1.Text = tbName.Text;
+           
         }
 
         protected void tbName_TextChanged(object sender, EventArgs e)
