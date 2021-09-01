@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,12 @@ namespace SimpleApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var albums = new List<Album>
+            {
+                new Album() { Id=1, Artist="Test", AlbumName="Testowanie"},
+                new Album() { Id=2, Artist="Coldplay", AlbumName="Mylo Xyloto"}
+            };
+            return View(albums);
         }
 
         public ActionResult About()
