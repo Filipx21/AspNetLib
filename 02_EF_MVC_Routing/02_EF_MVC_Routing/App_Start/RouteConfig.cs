@@ -13,6 +13,9 @@ namespace _02_EF_MVC_Routing
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Czytanie route z kontrolerów
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "ProductDetails",
                 url: "album-{id}.html",
