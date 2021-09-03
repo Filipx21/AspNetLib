@@ -21,6 +21,11 @@ namespace _03_EF_MVC_Controller.Controllers
 
     public class HomeController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult ProductsList()
         {
             IList<string> products = Test();
