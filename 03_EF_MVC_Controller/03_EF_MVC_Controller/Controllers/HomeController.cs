@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,9 +27,32 @@ namespace _03_EF_MVC_Controller.Controllers
             return View(products);
         }
 
+        #region ActionResult
+        public ActionResult GoToEdit()
+        {
+            return RedirectToAction("Edit", "Album");
+        }
 
+        public ActionResult GetFile(string filename)
+        {
+            var path = Server.MapPath("~/Content/Files/" + filename);
+            return File(path, "application/zip");
+        }
 
+        public ActionResult GetJson()
+        {
+            var album = new Album()
+            {
+                Id = 1,
+                AlbumName = "Testowa",
+                Artist = "Tester2.0"
+            };
+            return Json(album, JsonRequestBehavior.AllowGet);
+        }
 
+        #endregion
+
+        #region Data
         public List<string> Test()
         {
             return new List<string>()
@@ -39,5 +63,6 @@ namespace _03_EF_MVC_Controller.Controllers
                 "4"
             };
         }
+        #endregion
     }
 }
