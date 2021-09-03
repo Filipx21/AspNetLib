@@ -7,7 +7,8 @@ using System.Web.Mvc;
 
 namespace _03_EF_MVC_Controller.Controllers
 {
-    /* Dostepne rodzaje ActionResult
+    /* Dostepne rodzaje ActionResult:
+     * 
      * - EmptyResult - Brak odpowiedzi; Wykorzyststywane gdy akcja zrwaca null or void
      * - ContentResult - Odpowiedz jako tekst; Wykorzystywane gdy akcja zwraca inny typ niż ActionResult(string, int)
      * - JsonResult - Serializuje obiekt do JSON;
@@ -17,7 +18,9 @@ namespace _03_EF_MVC_Controller.Controllers
      * - PartialViewResult - Wysyła czesc widoku; Wykorzystywane np. do AJAX
      * - FileContentResult, FilePathResult, FileStreamResult - Zwraca plik
      * - JavaScriptResult - Wysyła i wywołuje JS po stronie klienta
+     * 
      */
+
 
     public class HomeController : Controller
     {
@@ -41,7 +44,7 @@ namespace _03_EF_MVC_Controller.Controllers
         public ActionResult GetFile(string filename)
         {
             var path = Server.MapPath("~/Content/Files/" + filename);
-            return File(path, "application/zip");
+            return File(path, "application/txt");
         }
 
         public ActionResult GetJson()
