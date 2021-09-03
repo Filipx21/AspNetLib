@@ -9,10 +9,11 @@ namespace _03_EF_MVC_Controller.Controllers
 {
     /* Dostepne rodzaje ActionSelectors:
      * 
-     * - [NonAction] - Dana metoda nie bedzie mozliwa do wywolania przez URL
-     * - [ActionChange("Nazwa")] - [ActionName("nazwa")] - Pozwala zmienić nazwe akcji na inna niż nazwa metody
-     * - [AcceptVerbs(HttpVerbs.Post)] - ([HttpPost],[HttpGet]) - Okresla za pomoca jakiego typu żadania ma zostać wywołana akcja
-     * 
+     * - Authorize - tylko dla uwierzytelnionych, okreslonych użytkowników
+     * - HandleError - okreslenie widoku do zwrócenia w razie bledu
+     * - OutputCache - Zapisz odpowiedz w cache
+     * - ValidateInput - Wyłaczenie walidowania danych wejsciowych do danej akcji
+     * - ValidateAntiForgeryToken - zabezpieczenie przez atakie CSRF
      */
 
     public class HomeController : Controller
@@ -22,23 +23,7 @@ namespace _03_EF_MVC_Controller.Controllers
             return View();
         }
 
-        [NonAction]
-        public ActionResult EditTest()
-        {
-            return View();
-        }
-
-        //[ActionName("Edytuj")]
-        public ActionResult Edit()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Edit(Album album)
-        {
-            return Content(string.Format("Title: {0}, Artist: {1}", album.AlbumName, album.Artist));
-        }
+        
 
     }
 }
