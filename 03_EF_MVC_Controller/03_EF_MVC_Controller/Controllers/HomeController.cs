@@ -20,23 +20,24 @@ namespace _03_EF_MVC_Controller.Controllers
 
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult ProductsList()
         {
-            return View();
+            IList<string> products = Test();
+            return View(products);
         }
 
-        public ActionResult About()
+
+
+
+        public List<string> Test()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return new List<string>()
+            {
+                "1",
+                "2",
+                "3",
+                "4"
+            };
         }
     }
 }
