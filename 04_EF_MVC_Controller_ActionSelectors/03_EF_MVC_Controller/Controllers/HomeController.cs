@@ -34,8 +34,14 @@ namespace _03_EF_MVC_Controller.Controllers
         //    return View();
         //}
 
+        //Mozna to ustawic globalnie; Sprawdz plik FilterConfig
         [TimerAttribute]
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult About()
         {
             return View();
         }
