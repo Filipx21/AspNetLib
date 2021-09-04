@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_EF_MVC_Controller_ActionSelectors", "03_EF_MVC_Controller\04_EF_MVC_Controller_ActionSelectors.csproj", "{429A1466-E7BB-4939-BF35-0D396C18E02B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_EF_MVC_Controller_ActionFilters", "03_EF_MVC_Controller\05_EF_MVC_Controller_ActionFilters.csproj", "{429A1466-E7BB-4939-BF35-0D396C18E02B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

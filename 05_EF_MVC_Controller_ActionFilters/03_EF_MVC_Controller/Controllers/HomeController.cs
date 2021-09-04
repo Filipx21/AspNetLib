@@ -1,4 +1,5 @@
-﻿using SimpleApp.Models;
+﻿using _03_EF_MVC_Controller.Infrastructure;
+using SimpleApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,36 +10,42 @@ namespace _03_EF_MVC_Controller.Controllers
 {
     /* Dostepne rodzaje ActionSelectors:
      * 
-     * - [NonAction] - Dana metoda nie bedzie mozliwa do wywolania przez URL
-     * - [ActionChange("Nazwa")] - [ActionName("nazwa")] - Pozwala zmienić nazwe akcji na inna niż nazwa metody
-     * - [AcceptVerbs(HttpVerbs.Post)] - ([HttpPost],[HttpGet]) - Okresla za pomoca jakiego typu żadania ma zostać wywołana akcja
-     * 
+     * - Authorize - tylko dla uwierzytelnionych, okreslonych użytkowników
+     * - HandleError - okreslenie widoku do zwrócenia w razie bledu;Aby uruchomic wylapywanie bledów trzeba dodac <customErrors mode="On" defaultRedirect="Error.html"/> do web config
+     * - OutputCache - Zapisz odpowiedz w cache
+     * - ValidateInput - Wyłaczenie walidowania danych wejsciowych do danej akcji
+     * - ValidateAntiForgeryToken - zabezpieczenie przez atakie CSRF
      */
 
     public class HomeController : Controller
     {
+        //[Authorize]
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+
+        //Wyswietlenie wlasnej strony z errorem po wczesniejszym uruchomieniu wyswietlania błedów; Patrz wyżej
+        //[HandleError(ExceptionType = typeof(DivideByZeroException), View = "NewError")]
+        //public ActionResult Index()
+        //{
+        //    var zero = 0;
+        //    double result = 2 / zero;
+        //    return View();
+        //}
+
+        //Mozna to ustawic globalnie; Sprawdz plik FilterConfig
+        [TimerAttribute]
         public ActionResult Index()
         {
             return View();
         }
 
-        [NonAction]
-        public ActionResult EditTest()
+        public ActionResult About()
         {
             return View();
         }
 
-        //[ActionName("Edytuj")]
-        public ActionResult Edit()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Edit(Album album)
-        {
-            return Content(string.Format("Title: {0}, Artist: {1}", album.AlbumName, album.Artist));
-        }
 
     }
 }
