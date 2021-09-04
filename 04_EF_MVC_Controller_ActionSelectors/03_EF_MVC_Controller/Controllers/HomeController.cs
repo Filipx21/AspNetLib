@@ -1,4 +1,5 @@
-﻿using SimpleApp.Models;
+﻿using _03_EF_MVC_Controller.Infrastructure;
+using SimpleApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +26,17 @@ namespace _03_EF_MVC_Controller.Controllers
         //}
 
         //Wyswietlenie wlasnej strony z errorem po wczesniejszym uruchomieniu wyswietlania błedów; Patrz wyżej
-        [HandleError(ExceptionType = typeof(DivideByZeroException), View = "NewError")]
+        //[HandleError(ExceptionType = typeof(DivideByZeroException), View = "NewError")]
+        //public ActionResult Index()
+        //{
+        //    var zero = 0;
+        //    double result = 2 / zero;
+        //    return View();
+        //}
+
+        [TimerAttribute]
         public ActionResult Index()
         {
-            var zero = 0;
-            double result = 2 / zero;
             return View();
         }
 
