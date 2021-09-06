@@ -16,5 +16,5 @@
     * Szblony dla typów danych:
     *   * EditorTemplates 
     *   * DisplayTemplates 
-    * Atrybuty[UIHint] 
+    * Atrybuty[UIHint] - przypisanie szablonu np.DateTimePicker
 
