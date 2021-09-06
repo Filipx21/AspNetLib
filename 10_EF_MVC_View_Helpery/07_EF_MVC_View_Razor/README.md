@@ -10,10 +10,11 @@
     * Html.Password("my-pass") - Pole tekstowe dla hasla
     * Html.Raw() - Pozwala na wstrzyknięcie kawalka html
 
-    ## Dynamiczne Helpery:
-    *
-    *
-    *
-    *
-    *
+    ## Dynamiczne Helpery: (Mozna je edytować tworzac template Shared/EditorTemplates/...)
+    * EditFor 
+    * DisplayFor 
+    * Szblony dla typów danych:
+    *   * EditorTemplates 
+    *   * DisplayTemplates 
+    * Atrybuty[UIHint] 
 
