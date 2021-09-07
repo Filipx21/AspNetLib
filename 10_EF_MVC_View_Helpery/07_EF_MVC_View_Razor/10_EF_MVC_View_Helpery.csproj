@@ -126,6 +126,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\ImageHelper.cs" />
     <Compile Include="Infrastructure\MyCsvResult.cs" />
     <Compile Include="Infrastructure\TimerAttribute.cs" />
     <Compile Include="Models\Album.cs" />
@@ -183,6 +184,7 @@
     <Content Include="Views\Shared\EditorTemplates\Decimal.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\HelpersModel.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Helpers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

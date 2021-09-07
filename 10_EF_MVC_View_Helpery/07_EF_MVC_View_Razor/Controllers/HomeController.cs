@@ -68,6 +68,10 @@ namespace ControllerActionParameters.Controllers
 
         #endregion
 
+        public ActionResult Helpers()
+        {
+            return View();
+        }
 
     }
 }
