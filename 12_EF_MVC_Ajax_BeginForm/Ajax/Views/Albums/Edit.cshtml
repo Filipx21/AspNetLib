@@ -1,0 +1,46 @@
+﻿@model Ajax.Models.Album
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit album</h2>
+
+@using (Ajax.BeginForm(new AjaxOptions()
+{    
+    HttpMethod = "Post",
+    OnSuccess = "ProcessAndUpdate"
+}))
+{
+
+
+    @Html.LabelFor(a => a.AlbumTitle, "Tytuł")
+    @Html.TextBoxFor(a => a.AlbumTitle)
+
+    @Html.LabelFor(a => a.Artist.Name)
+    @Html.TextBoxFor(a => a.Artist.Name)
+
+    @Html.LabelFor(a => a.Price)
+    @Html.TextBoxFor(a => a.Price)
+
+    <input type="submit" value="Wyślij" />
+
+}
+
+<div id="formresult"></div>
+
+<script src="~/Scripts/mustache.js"></script>
+
+<script id="albumtmpl" type="text/template">
+    <h1>{{AlbumTitle}}</h1>
+    <h2>by {{Artist.Name}}</h2>
+    <p>Cena promocyjna: {{Price}}</p>
+</script>
+
+<script>
+    function ProcessAndUpdate(result) {
+        var template = $('#albumtmpl').html();
+        var html = Mustache.to_html(template, result);
+        $('#formresult').html(html);
+    }
+</script>
