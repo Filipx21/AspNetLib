@@ -19,4 +19,4 @@
     * Atrybuty[UIHint] - przypisanie szablonu np.DateTimePicker
 
 
-    http://mvccontrib.codeplex.com/
+    Warto pobrac, roz dla helperów: http://mvccontrib.codeplex.com/
