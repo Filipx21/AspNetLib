@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -13,18 +14,12 @@ namespace Ajax.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public string GetTime()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            Thread.Sleep(2000);
+            return DateTime.Now.ToLongTimeString();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
     }
 }
