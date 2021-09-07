@@ -1,0 +1,20 @@
+﻿
+@helper HighLight(String value)
+{
+    <span style="background-color: red">
+        @value
+    </span>
+}
+
+@helper CalcAndFormat(int a, int b, Func<int, int, int> calc)
+{
+    var sum = calc(a, b);
+    if (sum % 3 == 0)
+    {
+        @HighLight(sum.ToString())
+    }
+    else
+    {
+        <span>@sum</span>
+    }
+}
