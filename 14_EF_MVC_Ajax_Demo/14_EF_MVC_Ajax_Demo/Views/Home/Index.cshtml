@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Demo.Models.Person>
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="search-form" method="get" data-ajax="true" data-ajax-target="#personlist-section" data-ajax-update="#personlist-section">
+        <input id="SearchQuery" name="searchQuery" data-autocomplete-source="@Url.Action("PersonSuggestions")" placeholder="Wprowadź imię lub nazwisko..." style="width: 200px" />
+        <input type="submit" value="Filtruj" />
+    </form>
+
+    <br />
+
+    @Html.Partial("_PersonListPartialView")
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+    <script>
+        var setupAutoComplete = function () {
+            var $input = $("#SearchQuery");
+
+            var options = {
+                source: $input.attr("data-autocomplete-source"),
+                select: function (event, ui) {
+                    $input.val(ui.item.label);
+                    var $form = $input.parents("form:first");
+                    $form.submit();
+                }
+            };
+
+            $input.autocomplete(options);
+        };
+
+        setupAutoComplete();
+    </script>
+</body>
+</html>
