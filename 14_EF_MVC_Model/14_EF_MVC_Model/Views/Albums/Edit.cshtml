@@ -1,0 +1,35 @@
+﻿@model _14_EF_MVC_Model.Models.Album
+
+@{
+    ViewBag.Title = "Edit";    
+}
+
+<h2>Edit album</h2>
+
+<form action="/Albums/Edit" method="post">
+
+    <label for="albumTitle">Tytuł: </label>
+    <input type="text" name="AlbumTitle" id="albumTitle" />
+
+    <label for="artistName">Artysta: </label>
+    <input type="text" name="Artist.Name" id="artistName" />
+
+    <label for="price">Cena: </label>
+    <input type="text" name="Price" id="price" />
+
+    <input type="submit" value="Wyślij" />
+
+    <br /> <br />
+
+    <br />
+
+    <label for="number">Dzień: </label>
+    <input type="number" name="Day" id="day" />
+
+    <label for="number">Miesiąc: </label>
+    <input type="number" name="Month" id="month" />
+
+    <label for="number">Rok: </label>
+    <input type="number" name="Year" id="year" />
+
+</form>
