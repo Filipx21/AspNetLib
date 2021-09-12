@@ -9,23 +9,14 @@ namespace MyValidation.Controllers
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
         public ActionResult Index()
         {
             return View();
         }
 
-
         [HttpPost]
         public ActionResult AddQuestion(Question question)
         {
-
-            if (question.QuestionText == "?")
-                ModelState.AddModelError("QuestionText", "Komunikat dodany manualnie. Nie może być samego znaku zapytania...");
-
-
-
             if (!ModelState.IsValid)
                 return View("Index", question);
             else
@@ -35,7 +26,6 @@ namespace MyValidation.Controllers
                 return View("Index");
             }
         }
-
 
 	}
 }
