@@ -43,14 +43,23 @@ namespace _14_EF_MVC_Model.Controllers
 
         //}
 
-        [HttpPost]
-        public ActionResult Edit([ModelBinder(typeof(AlbumModelBinder))]Album newAlbum)
-        {
-            return Content(string.Format("Title: {0}, Artist: {1}, Price: {2}, DateString: {3}", newAlbum.AlbumTitle, newAlbum.Artist.Name, newAlbum.Price, newAlbum.DateString));
-        }
+        //[HttpPost]
+        //public ActionResult Edit([ModelBinder(typeof(AlbumModelBinder))]Album newAlbum)
+        //{
+        //    return Content(string.Format("Title: {0}, Artist: {1}, Price: {2}, DateString: {3}", newAlbum.AlbumTitle, newAlbum.Artist.Name, newAlbum.Price, newAlbum.DateString));
+        //}
 
 
         //Inny sposob to dodanie ModelBinder przez Global.asax; Parametr metody edit dodaniu do global.asax Album newAlbum
+
+
+
+
+        [HttpPost]
+        public ActionResult Edit([Bind(Exclude="Price")]Album newAlbum)
+        {
+            return Content(string.Format("Title: {0}, Artist: {1}, Price: {2}, DateString: {3}", newAlbum.AlbumTitle, newAlbum.Artist.Name, newAlbum.Price, newAlbum.DateString));
+        }
 
     }
 }
