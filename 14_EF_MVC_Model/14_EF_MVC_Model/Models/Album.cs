@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace _14_EF_MVC_Model.Models
 {
-    [Bind(Exclude = "Price")]
+    [Bind(Exclude = "Price")] 
     public class Album
     {
         public string AlbumTitle { get; set; }        

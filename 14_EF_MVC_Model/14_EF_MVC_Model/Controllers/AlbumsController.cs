@@ -55,8 +55,16 @@ namespace _14_EF_MVC_Model.Controllers
 
 
 
+        //Wykluczenie ktorejs z wartosci
+        //[HttpPost]
+        //public ActionResult Edit([Bind(Exclude="Price")]Album newAlbum)
+        //{
+        //    return Content(string.Format("Title: {0}, Artist: {1}, Price: {2}, DateString: {3}", newAlbum.AlbumTitle, newAlbum.Artist.Name, newAlbum.Price, newAlbum.DateString));
+        //}
+
+        //Inny sposob umieszczenie [Bind(Exclude="Price")] w modelu
         [HttpPost]
-        public ActionResult Edit([Bind(Exclude="Price")]Album newAlbum)
+        public ActionResult Edit(Album newAlbum)
         {
             return Content(string.Format("Title: {0}, Artist: {1}, Price: {2}, DateString: {3}", newAlbum.AlbumTitle, newAlbum.Artist.Name, newAlbum.Price, newAlbum.DateString));
         }
