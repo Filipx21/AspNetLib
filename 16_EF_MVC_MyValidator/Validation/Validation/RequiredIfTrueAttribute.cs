@@ -8,7 +8,7 @@ using System.Web.Mvc;
 namespace MyValidation.Validation
 {
 
-    public class RequiredIfTrueAttribute : ValidationAttribute
+    public class RequiredIfTrueAttribute : ValidationAttribute, IClientValidatable
     {
         public string BooleanPropertyName { get; set; }
 
@@ -34,6 +34,16 @@ namespace MyValidation.Validation
             return (T)propertyInfo.GetValue(objectInstance);
         }
 
+        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
+        {
+            var modelClientValidationRule = new ModelClientValidationRule
+            {
+                ValidationType = "requirediftrue",
+                ErrorMessage = FormatErrorMessage(metadata.DisplayName)
+            };
+            modelClientValidationRule.ValidationParameters.Add("boolprop", BooleanPropertyName);
+            yield return modelClientValidationRule;
+        }
     }
 
 
