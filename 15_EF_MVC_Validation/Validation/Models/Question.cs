@@ -6,13 +6,10 @@ using System.Web;
 
 namespace MyValidation.Models
 {
-
     public class Question
     {
-
         [ScaffoldColumn(false)]
         public int QuestionId { get; set; }
-
 
         [Display(Name = "Pytanie:")]
         [DataType(DataType.MultilineText)]
@@ -31,7 +28,5 @@ namespace MyValidation.Models
         [RegularExpression(@"([\+]){0,1}([0-9]{2})?[\-\s]?[-]?([0-9]{3})\-?[-\s]?([0-9]{3})[-\s]\-?([0-9]{3})$",
             ErrorMessage = "Numer musi być zapisany w formacie 123-123-123")]
         public string PhoneNumber { get; set; }
-
-
     }
 }
