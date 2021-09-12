@@ -8,7 +8,7 @@ using System.Web.Mvc;
 namespace MyValidation.Validation
 {
 
-    public class RequiredIfTrueAttribute : ValidationAttribute, IClientValidatable
+    public class RequiredIfTrueAttribute : ValidationAttribute
     {
         public string BooleanPropertyName { get; set; }
 
