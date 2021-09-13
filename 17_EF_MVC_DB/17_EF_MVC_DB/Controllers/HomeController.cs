@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _17_EF_MVC_DB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,18 +14,21 @@ namespace _17_EF_MVC_DB.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult AddQuestion(Question question)
         {
-            ViewBag.Message = "Your application description page.";
+            if (question.QuestionText == "?")
+                ModelState.AddModelError("QuestionText", "Komunikat dodany manualnie. Nie może być samego znaku zapytania...");
 
-            return View();
+            if (!ModelState.IsValid)
+                return View("Index", question);
+            else
+            {
+                // Kod zapisujący lub wysyłający pytanie do właściciela strony
+
+                return View("Index");
+            }
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-    }
+	}
 }
