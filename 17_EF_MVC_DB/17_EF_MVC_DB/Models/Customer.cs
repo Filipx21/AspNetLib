@@ -1,5 +1,4 @@
-﻿using _17_EF_MVC_DB.Validation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,7 +16,6 @@ namespace _17_EF_MVC_DB.Models
         public string Email { get; set; }
 
         [Display(Name = "Numer telefonu:")]
-        [RequiredIfTrue(BooleanPropertyName = "PhonePreferred", ErrorMessage = "Skoro preferujesz kontakt telefoniczny, musisz podać numer.")]
         [Phone]
         [RegularExpression(@"([\+]){0,1}([0-9]{2})?[\-\s]?[-]?([0-9]{3})\-?[-\s]?([0-9]{3})[-\s]\-?([0-9]{3})$",
             ErrorMessage = "Numer musi być zapisany w formacie 123-123-123")]

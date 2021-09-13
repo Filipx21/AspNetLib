@@ -11,6 +11,11 @@ namespace _17_EF_MVC_DB.DAL
     {
         public QuestionContext() : base("QuestionContext") { }
 
+        static QuestionContext()
+        {
+            Database.SetInitializer<QuestionContext>(new QuestionInitializer());
+        }
+
         public DbSet<Question> Questions { get; set; }
         public DbSet<Customer> Customers { get; set; }
     }

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace _17_EF_MVC_DB.DAL
 {
-    public class QuestionsInitializer : DropCreateDatabaseAlways<QuestionContext>
+    public class QuestionInitializer : DropCreateDatabaseAlways<QuestionContext>
     {
         protected override void Seed(QuestionContext context)
         {

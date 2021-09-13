@@ -33,5 +33,11 @@ namespace _17_EF_MVC_DB.Controllers
             }
         }
 
+        public ActionResult ShowCustomerQuestions(int customerId)
+        {
+            var customer = context.Customers.Find(customerId);
+            return View(customer);
+        }
+
 	}
 }
