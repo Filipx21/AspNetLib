@@ -9,9 +9,9 @@ namespace _17_EF_MVC_DB.DAL
 {
     public class QuestionContext : DbContext
     {
-
         public QuestionContext() : base("QuestionContext") { }
 
         public DbSet<Question> Questions { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }

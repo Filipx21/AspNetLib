@@ -1,4 +1,5 @@
-﻿using _17_EF_MVC_DB.Models;
+﻿using _17_EF_MVC_DB.DAL;
+using _17_EF_MVC_DB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace _17_EF_MVC_DB.Controllers
 {
     public class HomeController : Controller
     {
+        private QuestionContext context = new QuestionContext();
+
         public ActionResult Index()
         {
             return View();
@@ -24,8 +27,8 @@ namespace _17_EF_MVC_DB.Controllers
                 return View("Index", question);
             else
             {
-                // Kod zapisujący lub wysyłający pytanie do właściciela strony
-
+                context.Questions.Add(question);
+                context.SaveChanges();
                 return View("Index");
             }
         }
