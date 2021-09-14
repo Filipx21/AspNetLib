@@ -13,18 +13,20 @@ namespace _19_EF_MCV_Temp_Data.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult PassTempData(string paramtopass)
         {
-            ViewBag.Message = "Your application description page.";
+            TempData["param"] = paramtopass;
 
-            return View();
+            return RedirectToAction("PRGDemo");
         }
 
-        public ActionResult Contact()
+        public ActionResult PRGDemo()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.TempParam = TempData["param"];
 
-            return View();
+            return View("PRGDemo");
         }
+
     }
 }
