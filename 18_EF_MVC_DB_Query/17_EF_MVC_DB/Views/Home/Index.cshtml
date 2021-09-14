@@ -1,0 +1,39 @@
+﻿@model _17_EF_MVC_DB.Models.Question
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .field-validation-error {
+            color: red;
+            font-weight: bold;
+        }
+
+        .input-validation-error {
+            background: pink;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("AddQuestion", "Home"))
+    {
+        @Html.EditorFor(m => m)
+
+        <input type="submit" value="Wyślij" />
+    }
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/RequiredIfTrue.js"></script>
+
+</body>
+</html>
