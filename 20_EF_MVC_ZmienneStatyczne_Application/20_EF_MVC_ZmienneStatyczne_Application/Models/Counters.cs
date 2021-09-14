@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace InfrastructureAndState.Models
+﻿namespace _20_EF_MVC_ZmienneStatyczne_Application.Models
 {
     public class Counters
     {
