@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace _20_EF_MVC_ZmienneStatyczne_Application
+namespace Sesja
 {
     public class MvcApplication : System.Web.HttpApplication
     {
