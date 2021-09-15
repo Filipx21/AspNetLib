@@ -26,13 +26,10 @@ namespace InfrastructureAndState.Controllers
             return RedirectToAction("Index");
         }
 
-
-
         private Counters GetCounters()
         {
             var counters = new Counters();
 
-            // Sesja
             if (Session["counter"] != null)
             {
                 counters.SessionCounter = (int)Session["counter"];
