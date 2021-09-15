@@ -12,12 +12,13 @@
     </style>
 </head>
 <body>
-    @using (Html.BeginForm("IncrementSession", "Home"))
+
+    @using (Html.BeginForm("IncrementCookies", "Home"))
     {
         <div>
-            Licznik kliknięć (sesja)
+            Licznik kliknięć (cookie)
             <input value="Inkrementuj!" type="submit" />
-            <div>@Model.SessionCounter</div>
+            <div>@Model.CookieCounter</div>
         </div>
     }
 

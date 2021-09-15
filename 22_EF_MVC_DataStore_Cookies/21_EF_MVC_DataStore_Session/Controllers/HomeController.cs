@@ -1,12 +1,12 @@
 ﻿using _20_EF_MVC_ZmienneStatyczne_Application.Models;
+using System;
+using System.Web;
 using System.Web.Mvc;
 
 namespace InfrastructureAndState.Controllers
 {
     public class HomeController : Controller
     {
-        private object staticCounterLock = new object();
-
         public ActionResult Index(int id = 1)
         {
             var counters = GetCounters();
@@ -14,12 +14,12 @@ namespace InfrastructureAndState.Controllers
         }
 
         [HttpPost]
-        public ActionResult IncrementSession()
+        public ActionResult IncrementCookies()
         {
             var counters = GetCounters();
 
-            // Inkrementuj stan zapisany w Session[]
-            counters.SessionCounter++;
+            // Inkrementuj stan zapisany w Cookie
+            counters.CookieCounter++;
 
             SetCounters(counters);
 
@@ -30,13 +30,14 @@ namespace InfrastructureAndState.Controllers
         {
             var counters = new Counters();
 
-            if (Session["counter"] != null)
+            // Cookie
+            if (Request.Cookies["counter"] != null)
             {
-                counters.SessionCounter = (int)Session["counter"];
+                counters.CookieCounter = int.Parse(Request.Cookies["counter"].Value);
             }
             else
             {
-                counters.SessionCounter = 0;
+                counters.CookieCounter = 0;
             }
 
             return counters;
@@ -44,7 +45,10 @@ namespace InfrastructureAndState.Controllers
 
         private void SetCounters(Counters counters)
         {
-            Session["counter"] = counters.SessionCounter;
+            HttpCookie cookie = new HttpCookie("counter", counters.CookieCounter.ToString());
+            //cookie.Expires = DateTime.Now.AddDays(-1);
+            cookie.Expires = DateTime.Now.AddDays(1);
+            Response.SetCookie(cookie);
         }
 
     }
