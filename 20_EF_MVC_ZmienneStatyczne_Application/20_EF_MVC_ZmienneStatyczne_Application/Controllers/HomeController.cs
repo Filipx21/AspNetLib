@@ -47,8 +47,8 @@ namespace InfrastructureAndState.Controllers
         {
             HttpContext.Application.Lock();
             var counters = GetCounters();
-            
             counters.ApplicationCounter++; // Inkrementuj stan zapisany w Application[]
+            SetCounters(counters);
             HttpContext.Application.UnLock();
 
             return RedirectToAction("Index");
@@ -71,7 +71,8 @@ namespace InfrastructureAndState.Controllers
 
         private void SetCounters(Counters counters)
         {
-            
+            HttpContext.Application["counter"] = counters.ApplicationCounter;
+
         }
 
     }
