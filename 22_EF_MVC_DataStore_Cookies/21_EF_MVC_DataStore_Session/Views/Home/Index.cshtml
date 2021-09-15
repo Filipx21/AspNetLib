@@ -1,0 +1,25 @@
+﻿@model _20_EF_MVC_ZmienneStatyczne_Application.Models.Counters
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        div {
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("IncrementSession", "Home"))
+    {
+        <div>
+            Licznik kliknięć (sesja)
+            <input value="Inkrementuj!" type="submit" />
+            <div>@Model.SessionCounter</div>
+        </div>
+    }
+
+</body>
+</html>
