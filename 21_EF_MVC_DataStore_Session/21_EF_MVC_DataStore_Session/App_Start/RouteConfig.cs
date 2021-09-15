@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace _21_EF_MVC_DataStore_Session
+namespace Sesja
 {
     public class RouteConfig
     {
