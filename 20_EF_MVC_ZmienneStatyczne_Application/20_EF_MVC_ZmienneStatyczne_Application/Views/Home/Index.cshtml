@@ -32,5 +32,14 @@
         </div>
     }
 
+    @using (Html.BeginForm("IncrementApplication", "Home"))
+    {
+        <div>
+            Licznik kliknięć (zmienne Application)
+            <input value="Inkrementuj!" type="submit" />
+            <div>@Model.ApplicationCounter</div>
+        </div>
+    }
+
 </body>
 </html>

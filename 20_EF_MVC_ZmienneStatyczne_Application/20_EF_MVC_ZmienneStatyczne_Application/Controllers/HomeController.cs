@@ -42,12 +42,37 @@ namespace InfrastructureAndState.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public ActionResult IncrementApplication()
+        {
+            HttpContext.Application.Lock();
+            var counters = GetCounters();
+            
+            counters.ApplicationCounter++; // Inkrementuj stan zapisany w Application[]
+            HttpContext.Application.UnLock();
+
+            return RedirectToAction("Index");
+        }
+
         private Counters GetCounters()
         {
             var counters = new Counters();
+            if (HttpContext.Application["counter"] != null)
+            {
+                counters.ApplicationCounter = (int)HttpContext.Application["counter"];
+            }
+            else
+            {
+                counters.ApplicationCounter = 0;
+            }
+           
             return counters;
         }
 
-        
+        private void SetCounters(Counters counters)
+        {
+            
+        }
+
     }
 }
