@@ -1,12 +1,9 @@
-﻿### Sesja: 
-* Tymczasowo przechowuje dane po stronie serwera, domyślnie 20min
-* Nie jest wspoldzielona pomiedzy przegladarkami/zadaniami
-* przyklad: koszyk zakupów
-* skalowalnosc
-* Mozliwość ustawienia providera: 
-  * InProc - domyslnie, szybko, ale nie dla wielu serwerów
-  * State Server - dla wielu serwerów ale nie przetrwa restartu
-  * SQL - dla wielu serwerów i przetrwa restart
-  * Wlasny
+﻿### Cookies: 
+* Przechowuje dane po stronie serwera
+* Przechowuje niewielkie pliki do 4kb, dane w formacie string
+* Presistent (Zapisywanie na okreslony czas) lub tymczasowe
+* Response.Cookies - zapisane
+* Request.Cookies - Odczytane
+*
 
 
