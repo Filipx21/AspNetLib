@@ -1,4 +1,4 @@
-﻿namespace Sesja.Models
+﻿namespace _20_EF_MVC_ZmienneStatyczne_Application.Models
 {
     public class Counters
     {

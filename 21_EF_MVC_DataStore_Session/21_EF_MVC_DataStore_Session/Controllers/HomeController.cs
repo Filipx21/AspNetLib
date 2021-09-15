@@ -1,7 +1,7 @@
-﻿using Sesja.Models;
+﻿using _20_EF_MVC_ZmienneStatyczne_Application.Models;
 using System.Web.Mvc;
 
-namespace Sesja.Controllers
+namespace InfrastructureAndState.Controllers
 {
     public class HomeController : Controller
     {
