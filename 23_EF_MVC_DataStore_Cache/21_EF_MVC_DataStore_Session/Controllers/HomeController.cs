@@ -8,7 +8,8 @@ namespace Cache_.Controllers
 {
     public class HomeController : Controller
     {
-        [OutputCache(Duration=5, VaryByParam = "none")]
+        //[OutputCache(Duration=30, VaryByParam = "none")] //Cachuje strony z innym id jako 1
+        [OutputCache(Duration = 30, VaryByParam = "id")] //Cachuje strony z innym id osobno
         public ActionResult Index()
         {
             var counters = GetCounters();
@@ -16,7 +17,7 @@ namespace Cache_.Controllers
         }
 
         [HttpPost]
-        public ActionResult IncrementCache()
+        public ActionResult IncrementCache(int id = 1)
         {
             var counters = GetCounters();
 
