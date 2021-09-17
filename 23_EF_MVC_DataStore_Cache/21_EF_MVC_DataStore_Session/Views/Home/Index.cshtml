@@ -14,7 +14,7 @@
 <body>
     <div>
         <p>Aktualna godzina: @DateTime.Now.ToLongTimeString()</p>
-        @*<p>@Html.Action("GetTime", true)</p>*@
+        <p>@Html.Action("GetTime", true)</p> @** Action("", tutaj) <- okresla co nie ma byc cachowane*@
     </div>
 
     @using (Html.BeginForm("IncrementCache", "Home"))

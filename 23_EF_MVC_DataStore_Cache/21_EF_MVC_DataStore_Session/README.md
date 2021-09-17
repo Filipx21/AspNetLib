@@ -14,4 +14,11 @@
   * Priorytet - Decyduje o tym, ktore dane bedą usuwane wcześniej lub pozniej
   * Metoda wywoływana podczac usuwania
 
+### Donut Caching
+* Donut Caching:
+  * Cachuje cała strone
+  * Nie cachowane pod-zapytania (Html.Action)
+* Donut Hole Caching: 
+  * Nie cachuje całej strony
+  * OutputCache dla zapytania (Html.Action)
 
