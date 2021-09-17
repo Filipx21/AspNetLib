@@ -1,0 +1,26 @@
+﻿@model Cache_.Models.Counters
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        div {
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    @using (Html.BeginForm("IncrementCookies", "Home"))
+    {
+        <div>
+            Licznik kliknięć (cookie)
+            <input value="Inkrementuj!" type="submit" />
+            <div>@Model.CookieCounter</div>
+        </div>
+    }
+
+</body>
+</html>
