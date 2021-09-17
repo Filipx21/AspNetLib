@@ -14,12 +14,12 @@ namespace Cache_.Controllers
         }
 
         [HttpPost]
-        public ActionResult IncrementCookies()
+        public ActionResult IncrementCache()
         {
             var counters = GetCounters();
 
-            // Inkrementuj stan zapisany w Cookie
-            counters.CookieCounter++;
+            // Inkrementuj stan zapisany w Cache
+            counters.CacheCounter++;
 
             SetCounters(counters);
 
@@ -30,14 +30,14 @@ namespace Cache_.Controllers
         {
             var counters = new Counters();
 
-            // Cookie
-            if (Request.Cookies["counter"] != null)
+            // Cache
+            if (HttpRuntime.Cache["counter"] != null)
             {
-                counters.CookieCounter = int.Parse(Request.Cookies["counter"].Value);
+                counters.CacheCounter = (int)HttpRuntime.Cache["counter"];
             }
             else
             {
-                counters.CookieCounter = 0;
+                counters.CacheCounter = 0;
             }
 
             return counters;
@@ -45,10 +45,9 @@ namespace Cache_.Controllers
 
         private void SetCounters(Counters counters)
         {
-            HttpCookie cookie = new HttpCookie("counter", counters.CookieCounter.ToString());
-            //cookie.Expires = DateTime.Now.AddDays(-1);
-            cookie.Expires = DateTime.Now.AddDays(1);
-            Response.SetCookie(cookie);
+            //HttpRuntime.Cache.Remove("counter");
+            //HttpRuntime.Cache.Add("counter", counters.CacheCounter, null, DateTime.Now.AddSeconds(5), TimeSpan.Zero, CacheItemPriority.Default, null);
+            HttpRuntime.Cache["counter"] = counters.CacheCounter;
         }
 
     }
