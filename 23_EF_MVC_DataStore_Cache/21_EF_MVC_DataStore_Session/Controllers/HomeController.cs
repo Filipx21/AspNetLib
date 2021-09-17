@@ -1,13 +1,15 @@
 ﻿using Cache_.Models;
 using System;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Mvc;
 
 namespace Cache_.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(int id = 1)
+        [OutputCache(Duration=5, VaryByParam = "none")]
+        public ActionResult Index()
         {
             var counters = GetCounters();
             return View(counters);
@@ -45,9 +47,9 @@ namespace Cache_.Controllers
 
         private void SetCounters(Counters counters)
         {
-            //HttpRuntime.Cache.Remove("counter");
-            //HttpRuntime.Cache.Add("counter", counters.CacheCounter, null, DateTime.Now.AddSeconds(5), TimeSpan.Zero, CacheItemPriority.Default, null);
-            HttpRuntime.Cache["counter"] = counters.CacheCounter;
+            HttpRuntime.Cache.Remove("counter");
+            HttpRuntime.Cache.Add("counter", counters.CacheCounter, null, DateTime.Now.AddSeconds(5), TimeSpan.Zero, CacheItemPriority.Default, null);
+            //HttpRuntime.Cache["counter"] = counters.CacheCounter;
         }
 
     }

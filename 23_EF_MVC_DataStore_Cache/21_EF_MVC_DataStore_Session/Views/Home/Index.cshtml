@@ -12,13 +12,17 @@
     </style>
 </head>
 <body>
+    <div>
+        <p>Aktualna godzina: @DateTime.Now.ToLongTimeString()</p>
+        @*<p>@Html.Action("GetTime", true)</p>*@
+    </div>
 
-    @using (Html.BeginForm("IncrementCookies", "Home"))
+    @using (Html.BeginForm("IncrementCache", "Home"))
     {
         <div>
-            Licznik kliknięć (cookie)
+            Licznik kliknięć (cache)
             <input value="Inkrementuj!" type="submit" />
-            <div>@Model.CookieCounter</div>
+            <div>@Model.CacheCounter</div>
         </div>
     }
 

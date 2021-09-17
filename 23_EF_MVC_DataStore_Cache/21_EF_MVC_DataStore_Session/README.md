@@ -1,7 +1,9 @@
 ﻿### Cache: 
 * Data Caching i Output Caching
-  * Data Caching - Reczne z poziomu kodu C#; Podobne do application data
+  * Data Caching - Reczne z poziomu kodu C#; Podobne do application data.
   * Output Caching - Zapamietywanie zwróconej strony, aby nie trzeba było używać procesora
+  * ~ Automatyczne zapamietywanie zwróconej tresci
+  * ~ Atrybut dla kontrolera lub akcji
 * Działa po stronig serwera, docelowo ma obciążac serwer
 * Np. do pobrania danych z bazy danych (jeśli nie ma w Cache) i zapisanie w Cache
 * Wielu providerów - Używane do okreslenia w jaki sposob ma działac
