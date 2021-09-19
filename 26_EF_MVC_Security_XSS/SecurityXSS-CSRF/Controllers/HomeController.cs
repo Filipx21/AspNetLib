@@ -23,8 +23,8 @@ namespace SecurityXSS_CSRF.Controllers
         }
 
         [ValidateInput(false)] // Wylaczenie weryfikacji dla np. wprowadzania HTML
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddQuestion(Question newQuestion)
         {
             //newQuestion.QuestionText = Sanitizer.GetSafeHtmlFragment(newQuestion.QuestionText); // <- AntiXSS
