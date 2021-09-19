@@ -22,12 +22,12 @@ namespace SecurityXSS_CSRF.Controllers
             return View(HomeController.Questions);
         }
 
-        [ValidateInput(false)]
+        [ValidateInput(false)] // Wylaczenie weryfikacji dla np. wprowadzania HTML
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult AddQuestion(Question newQuestion)
         {
-            //newQuestion.QuestionText = Sanitizer.GetSafeHtmlFragment(newQuestion.QuestionText);
+            //newQuestion.QuestionText = Sanitizer.GetSafeHtmlFragment(newQuestion.QuestionText); // <- AntiXSS
             
             HomeController.Questions.Add(newQuestion);
             return RedirectToAction("Index");
