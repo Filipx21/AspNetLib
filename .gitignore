@@ -338,3 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/25_EF_MVC_Security_User_Auth/25_EF_MVC_Security_User_Auth.sln
