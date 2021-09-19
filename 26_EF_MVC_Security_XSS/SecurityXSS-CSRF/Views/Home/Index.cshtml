@@ -15,7 +15,8 @@
         @foreach (var q in Model)
         {
             <div style="margin-bottom: 30px; margin-left: 35px; font-style: italic;">
-                @q.QuestionText
+                @*@q.QuestionText*@
+                @Html.Raw(q.QuestionText) <!-- Abby dane nie byly zakodowane-->
             </div>
         }
     </div>
